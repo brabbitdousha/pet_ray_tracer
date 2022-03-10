@@ -15,7 +15,7 @@ color ray_color(const ray& r,const hittable& world,int depth)
     return color(0,0,0);
 
     if(world.hit(r,0.001,infinity,rec))
-    {   point3 target=rec.p+rec.normal+random_unit_vector();
+    {   point3 target=rec.p+random_in_hemisphere(rec.normal);
         return 0.5*ray_color(ray(rec.p,target-rec.p),world,depth-1);
     }
     vec3 unit_direction=unit_vector(r.direction());
@@ -40,7 +40,7 @@ int main() {
     camera cam;
 
     // Render
-    FILE* fp = fopen("8.6.ppm", "wb");
+    FILE* fp = fopen("8.6_2.ppm", "wb");
     fprintf(fp, "P3\n%d %d\n255\n",image_width,image_height);
     std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
