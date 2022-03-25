@@ -10,7 +10,8 @@ struct hit_record;
 
 class material {
     public:
-        virtual color emitted(double u, double v, const point3& p) const {
+        virtual color emitted(const ray& r_in, const hit_record& rec, double u, double v,
+    const point3& p) const {
             return color(0,0,0);
         }
         virtual bool scatter(
@@ -24,6 +25,8 @@ class material {
         ) const {
             return 0;
         }
+
+        
 
 };
 
@@ -81,9 +84,14 @@ class diffuse_light:public material
     diffuse_light(shared_ptr<texture> a): emit(a) {}
     diffuse_light(color c):emit(make_shared<solid_color>(c)){}
 
-    virtual color emitted(double u, double v, const point3& p) const override {
-            return emit->value(u, v, p);
-        }
+    virtual color emitted(const ray& r_in, const hit_record& rec, double u, double v,
+    const point3& p) const override {
+
+    if (rec.front_face)
+        return emit->value(u, v, p);
+    else
+        return color(0,0,0);
+}
 
     public:
         shared_ptr<texture> emit;
