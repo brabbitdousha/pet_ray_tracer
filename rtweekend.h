@@ -6,7 +6,6 @@
 #include <memory>
 #include <random>
 
-
 // Usings
 
 using std::shared_ptr;
@@ -48,9 +47,11 @@ inline int random_int(int min, int max) {
     // Returns a random integer in [min,max].
     return static_cast<int>(random_double(min, max+1));
 }
+
+
 // Common Headers
+
 
 #include "ray.h"
 #include "vec3.h"
-
 #endif
