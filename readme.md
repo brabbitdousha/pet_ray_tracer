@@ -13,3 +13,15 @@ then I come to [RayTracingTheNextWeek](https://raytracing.github.io/books/RayTra
 I got the image:</br>
 ![img](https://raytracing.github.io/images/img-2.22-book2-final.jpg)
 
+the rest of my life [Ray Tracing: The Rest of Your Life](https://raytracing.github.io/books/RayTracingTheRestOfYourLife.html)</br>
+
+mixture pdf:
+</br>
+
+![img](outputIMGTherestofyourlife/mixture_pdf.png)
+</br></br>
+specular:
+</br>
+
+![img](outputIMGTherestofyourlife/specular.png)
+
